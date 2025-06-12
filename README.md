@@ -52,20 +52,6 @@ The **Banking Management System** is a desktop-based application designed to sim
 
 ---
 
-## 📸 Screenshots
-
-> *(Include these if available)*
-- Login Window  
-- Dashboard with Modules  
-- Customer Creation Form  
-- Account Registration  
-- Deposit & Withdraw UI  
-- Balance Inquiry  
-- Transfer Form  
-- Customer Report Table  
-
----
-
 ## 🧩 How to Run
 
 1. 📥 Clone the repository or copy project files.
