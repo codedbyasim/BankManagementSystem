@@ -1,0 +1,118 @@
+CREATE TABLE branch (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  branch varchar(255) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE customer (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  cust_id varchar(11) NOT NULL,
+  firstname varchar(255) NOT NULL,
+  lastname varchar(255) NOT NULL,
+  street varchar(255) NOT NULL,
+  city varchar(255) NOT NULL,
+  branch int(11) NOT NULL,
+  phone int(11) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY (cust_id),
+  CONSTRAINT fk_customer_branch FOREIGN KEY (branch) REFERENCES branch(id) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE account (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  acc_id varchar(255) NOT NULL,
+  cust_id varchar(11) NOT NULL,
+  acc_type varchar(255) NOT NULL,
+  balance int(11) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY (acc_id),
+  CONSTRAINT fk_account_customer FOREIGN KEY (cust_id) REFERENCES customer(cust_id) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE deposit (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  acc_id varchar(255) NOT NULL,
+  cust_id varchar(11) NOT NULL,
+  date varchar(255) NOT NULL,
+  balance int(11) NOT NULL,
+  deposit int(11) NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_deposit_account FOREIGN KEY (acc_id) REFERENCES account(acc_id) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT fk_deposit_customer FOREIGN KEY (cust_id) REFERENCES customer(cust_id) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE transfer (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  f_account varchar(255) NOT NULL,
+  to_account varchar(255) NOT NULL,
+  amount int(11) NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_transfer_f_account FOREIGN KEY (f_account) REFERENCES account(acc_id) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT fk_transfer_to_account FOREIGN KEY (to_account) REFERENCES account(acc_id) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE user (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(255) NOT NULL,
+  username varchar(255) NOT NULL,
+  password varchar(255) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY (username)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE withdraw (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  acc_id varchar(255) NOT NULL,
+  cust_id varchar(11) NOT NULL,
+  date varchar(255) NOT NULL,
+  balance int(11) NOT NULL,
+  withdraw int(11) NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_withdraw_account FOREIGN KEY (acc_id) REFERENCES account(acc_id) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT fk_withdraw_customer FOREIGN KEY (cust_id) REFERENCES customer(cust_id) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+-- Insert branches
+INSERT INTO branch (id, branch) VALUES
+(1, 'Karachi'),
+(2, 'Islamabad'),
+(3, 'Lahore'),
+(4, 'Kashmir');
+
+-- Insert customers
+INSERT INTO customer (id, cust_id, firstname, lastname, street, city, branch, phone) VALUES
+(1, 'CS001', 'Asim', 'Hanif', 'Rawalpindi', 'Islamabad', 2, 24234234),
+(2, 'CS002', 'Maira', 'Noor', 'Islamabad', 'Islamabad', 1, 344234);
+
+-- Insert accounts
+INSERT INTO account (id, acc_id, cust_id, acc_type, balance) VALUES
+(1, 'A0001', 'CS001', 'Saving', 4077),
+(2, 'A0002', 'CS002', 'Saving', 13900);
+
+-- Insert deposits
+INSERT INTO deposit (id, acc_id, cust_id, date, balance, deposit) VALUES
+(1, 'A0001', 'CS001', '2019-02-05', 2977, 1000),
+(2, 'A0001', 'CS001', '2019-02-05', 923, 1000),
+(3, 'A0001', 'CS001', '2019-02-05', 77, 1000);
+
+-- Insert transfers
+INSERT INTO transfer (id, f_account, to_account, amount) VALUES
+(2, 'A0001', 'A0002', 500),
+(5, 'A0001', 'A0002', 500);
+
+-- Insert users
+INSERT INTO user (id, username, name, password) VALUES
+(1, 'asim', 'Asim Hanif', 'pass123');
+
+-- Insert withdrawals
+INSERT INTO withdraw (id, acc_id, cust_id, date, balance, withdraw) VALUES
+(1, 'A0001', 'CS001', '2019-02-04', 5000, 4000),
+(2, 'A0001', 'CS001', '2019-02-04', 5000, 4000);
+

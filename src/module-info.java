@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+/**
+ * 
+ */
+module FinalProject {
+	requires com.formdev.flatlaf;
+	requires com.formdev.flatlaf.extras;
+	requires java.desktop;
+	requires java.logging;
+	requires mysql.connector.java;
+	requires java.sql;
+	requires junit;
+}
