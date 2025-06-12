@@ -17,7 +17,7 @@ The **Banking Management System** is a desktop-based application designed to sim
 | Backend Logic    | Java               |
 | Database         | MySQL              |
 | Connectivity     | JDBC (Java Database Connectivity) |
-| IDE              | NetBeans / IntelliJ |
+| IDE              | Eclipse |
 
 ---
 
