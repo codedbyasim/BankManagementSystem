@@ -57,7 +57,7 @@ The **Banking Management System** is a desktop-based application designed to sim
 1. 📥 Clone the repository or copy project files.
 2. 🔧 Create the database in MySQL using the provided SQL script.
 3. ⚙️ Update JDBC connection string (`localhost`, `database`, `username`, `password`) in `.java` files.
-4. ▶️ Run `login.java` or `mainmenu.java` from NetBeans or IntelliJ.
+4. ▶️ Run `login.java` or `mainmenu.java` from Eclipse.
 5. 👨‍💻 Login with default user or create a new one.
 
 ---
