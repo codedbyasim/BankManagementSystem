@@ -82,8 +82,8 @@ The **Banking Management System** is a desktop-based application designed to sim
 ## 📧 Contact
 
 💼 [LinkedIn](https://www.linkedin.com/in/masimhanif/)  
-📩 Email: your.email@example.com  
-💻 GitHub: [your-github](https://github.com/codedbyasim)
+📩 Email: asimjutt2003@gmail.com  
+💻 GitHub: [Github](https://github.com/codedbyasim)
 
 ---
 
