@@ -75,7 +75,7 @@ The **Banking Management System** is a desktop-based application designed to sim
 ## 📣 Author
 
 **Asim Hanif**  
-`Final Year CS Student | Java Developer | DBMS Enthusiast`
+`Software Engineer Student | Java Developer | DBMS Enthusiast`
 
 ---
 
